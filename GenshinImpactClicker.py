@@ -51,20 +51,12 @@ from pyautogui import Point
 target_position: Point = Point(x=1, y=1)
 
 
-def user_enter_monitor(
-        sleep: Digit = 0.1,
-        delay: Digit = 0
-):
-    t_slp(delay)
-
-    while True:
-        try:
-            if (key_event := keyboard.read_event()).event_type == keyboard.KEY_DOWN:
-                return key_event.name
-        except KeyboardInterrupt:
-            pass
-
-        t_slp(sleep)
+def user_enter_monitor():
+    try:
+        if (key_event := keyboard.read_event()).event_type == keyboard.KEY_DOWN:
+            return key_event.name
+    except KeyboardInterrupt:
+        pass
 
 
 def clicker():
